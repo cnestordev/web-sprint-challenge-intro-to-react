@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Card(props) {
-
+    //data
     const { name, id, types, sprites } = props.data
 
     return (

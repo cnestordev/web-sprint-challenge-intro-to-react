@@ -7,7 +7,7 @@ const App = () => {
   const [query, setQuery] = useState('')
   const [pokemon, setPokemon] = useState([])
   const [filteredPokemon, setFilteredPokemon] = useState(null)
-
+  //data
   const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
 
   useEffect(() => {
