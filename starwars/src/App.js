@@ -1,17 +1,36 @@
-import React from 'react';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'
+import Navbar from './Navbar';
+import Character from './components/Character'
 
 const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
+  const [query, setQuery] = useState('')
+  const [pokemon, setPokemon] = useState([])
+  const [filteredPokemon, setFilteredPokemon] = useState(null)
 
-  // Fetch characters from the API in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
+  const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
+
+  useEffect(() => {
+    axios.get(baseUrl + 1)
+      .then(res => {
+        console.log(res.data)
+        setPokemon(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
+
+  if (pokemon.length === 0) {
+    return (
+      <h1>Loading</h1>
+    )
+  }
 
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
+      <Navbar />
+      <Character data={pokemon} />
     </div>
   );
 }
