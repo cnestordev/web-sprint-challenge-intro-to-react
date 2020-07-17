@@ -22,7 +22,6 @@ const Name = styled.h4`
 `
 
 function Card(props) {
-    //data
     const { name, id, types, sprites, weight } = props.data
 
     return (

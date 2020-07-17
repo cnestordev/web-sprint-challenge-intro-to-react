@@ -25,8 +25,8 @@ const App = () => {
   }
 
   useEffect(() => {
-    for (let i = 0; i < 10; i++) {
-      let num = Math.floor(Math.random() * 150)
+    for (let i = 0; i < 8; i++) {
+      let num = Math.floor(Math.random() * 150) + 1
       axios.get(baseUrl + num)
         .then(res => {
           setPokemon(prevValue => {
