@@ -20,8 +20,6 @@ function Character(props) {
             </Container>
         )
     }
-
-
 }
 
 export default Character
